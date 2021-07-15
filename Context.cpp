@@ -9,7 +9,7 @@
 
 int Context::ProcessEvent(void * arg)
 {
-    states[(int)enum_current_state]->handle(this , arg);
+    states[(int)enum_current_state]->handle( arg);
 
     return 0;    
 }
@@ -27,10 +27,10 @@ Context::Context()
     enum_current_state =  EnumState::STATE_INIT;
     
     /*instantiating all the states */
-    states[(int)EnumState::STATE_INIT] = new StateA();
-    states[(int)EnumState::STATE_A] = new StateA();
-    states[(int)EnumState::STATE_B] = new StateB(); 
-    states[(int)EnumState::STATE_C] = new StateC(); 
+    states[(int)EnumState::STATE_INIT] = new StateA(this);
+    states[(int)EnumState::STATE_A] = new StateA(this);
+    states[(int)EnumState::STATE_B] = new StateB(this); 
+    states[(int)EnumState::STATE_C] = new StateC(this); 
  
 }
 

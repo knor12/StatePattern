@@ -8,7 +8,10 @@
 class StateA : public State {  
   public: 
     //StateA(){};
-    int handle (Context * context, void * arg);
+    int handle ( void * arg);
+    
+    /*inherit constructor from base class*/
+     explicit StateA(Context * context) : State(context) { }; 
   private: 
       
 };

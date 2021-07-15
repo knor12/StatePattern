@@ -12,16 +12,23 @@ class State {
   public: 
   
     /*virtual function that( can be inherited by the subclasses*/ 
-    virtual int handle(Context * context, void * arg )=0 ; 
+    virtual int handle( void * arg )=0 ; 
     /*
         {
             states transitions and state logic go inside this 
         };
     */
     
+    State(Context * context)
+    {
+       _context = context;  
+    }
+    
   private: 
+
   
   protected:
+    Context * _context;
 
     
 };

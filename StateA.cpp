@@ -4,7 +4,7 @@
 #include "Context.h"
 #include "log.h"
 
-int StateA::handle ( Context * context, void * arg)
+int StateA::handle ( void * arg)
 {
     static unsigned int counter=0;
     
@@ -14,7 +14,7 @@ int StateA::handle ( Context * context, void * arg)
     {
         counter=0; 
         /*example state change*/
-        context->SetCurrentState(Context::EnumState::STATE_B);
+        _context->SetCurrentState(Context::EnumState::STATE_B);
         
     }else 
     {
